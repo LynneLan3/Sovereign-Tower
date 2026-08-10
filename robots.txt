@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hot-words-sovereign-tower.vercel.app/sitemap.xml
+Sitemap: https://sovereign-tower.vercel.app/sitemap.xml
