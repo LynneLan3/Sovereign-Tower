@@ -1,0 +1,58 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { game } from '../../config/game';
+import type { GameCategory } from '../../config/game';
+import GuideGrid from '../../components/GuideGrid.astro';
+import { categoryHref, categoryIdOf, getGuides, sortGuides } from '../../lib/guides';
+
+export function getStaticPaths() {
+	return game.categories.map((category) => {
+		const href = categoryHref(category.id);
+		const segments = href.replace(/^\/+|\/+$/g, '').split('/');
+		const categoryId = segments.pop();
+		const hub = segments.join('/');
+		return {
+			params: { hub, categoryId },
+			props: { category },
+		};
+	});
+}
+
+interface Props {
+	category: GameCategory;
+}
+
+const { category } = Astro.props;
+const guides = (await getGuides())
+	.filter((entry) => categoryIdOf(entry) === category.id)
+	.sort(sortGuides);
+---
+
+<StarlightPage
+	frontmatter={{
+		title: category.label,
+		description: category.description,
+		template: 'doc',
+		pagefind: false,
+		lastUpdated: false,
+		prev: false,
+		next: false,
+		category: category.id,
+		head: [
+			{
+				tag: 'meta',
+				attrs: { name: 'robots', content: 'noindex,follow' },
+			},
+		],
+	}}
+>
+	<p>{category.description}</p>
+	{
+		guides.length > 0 && (
+			<section class="gw-section">
+				<h2>Guides in {category.label}</h2>
+				<GuideGrid entries={guides} />
+			</section>
+		)
+	}
+</StarlightPage>
