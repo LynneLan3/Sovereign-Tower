@@ -1,27 +1,27 @@
 ---
-title: Is Sovereign Tower on PS5 or Consoles?
+title: Sovereign Tower Platforms
 description: Confirmed Sovereign Tower PC and Steam Deck status, with console availability left unconfirmed where official evidence is absent.
 category: platform-support
 slug: sovereign-tower/platforms
 status: confirmed
 featured: true
-quickAnswer: Sovereign Tower is confirmed on PC via Steam, and the launch communication reported Steam Deck Verified status. The reviewed official sources do not confirm PS5, Xbox, Switch, or mobile editions.
+quickAnswer: Sovereign Tower is confirmed on PC via Steam, and the launch communication reported Steam Deck Verified status. No console version has been officially announced.
 related:
   - sovereign-tower/beginners-guide
   - sovereign-tower/gameplay
 sidebar:
   order: 1
   badge: Confirmed
-lastUpdated: 2026-08-11
+lastUpdated: 2026-08-12
 ---
 
 ## What platforms are confirmed?
 
 Sovereign Tower is confirmed for **PC via Steam**. The launch communication reviewed for this site also reported **Steam Deck Verified** status.
 
-## Is Sovereign Tower on PS5, Xbox, Switch, or mobile?
+## Is Sovereign Tower on console?
 
-The reviewed Steam, publisher, developer, and launch sources do not confirm PlayStation 5, Xbox, Nintendo Switch, or mobile editions. This page does not turn the absence of an announcement into a claim that a future port will never happen.
+No console version has been officially announced. The reviewed Steam, publisher, developer, and launch sources do not confirm PlayStation 5, Xbox, Nintendo Switch, or mobile editions. Absence of an announcement is not a claim that a future port will never happen.
 
 ## Release context
 

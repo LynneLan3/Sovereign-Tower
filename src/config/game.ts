@@ -42,7 +42,8 @@ export const game: GameConfig = {
 	shortName: 'Sovereign Tower',
 	description:
 		'A source-led Sovereign Tower guide covering the Round Table management RPG loop, Knights, quests, time rewind, romance context, and confirmed PC platform.',
-	tagline: 'Confirmed gameplay and player guidance for the magical tower management RPG.',
+	tagline:
+		'Guide and wiki entry for beginners, gameplay systems, and confirmed platform information.',
 	siteUrl: 'https://sovereign-tower.vercel.app/',
 	hubPath: '/sovereign-tower/',
 	hubTitle: 'Sovereign Tower Guide & Wiki',
@@ -53,10 +54,13 @@ export const game: GameConfig = {
 	accentColor: '#0f766e',
 	portal: {
 		popularQuestions: [
+			{ label: 'Where should I start in Sovereign Tower?', href: '/sovereign-tower/beginners-guide/' },
+			{
+				label: 'Is Sovereign Tower on console?',
+				href: '/sovereign-tower/platforms/#is-sovereign-tower-on-console',
+			},
 			{ label: 'What is Sovereign Tower gameplay like?', href: '/sovereign-tower/gameplay/' },
-			{ label: 'Where should beginners start?', href: '/sovereign-tower/beginners-guide/' },
 			{ label: 'Does it have romance options?', href: '/sovereign-tower/romance-options/' },
-			{ label: 'Is Sovereign Tower on console?', href: '/sovereign-tower/platforms/' },
 		],
 		showRecentlyUpdated: true,
 		maxRecent: 4,
