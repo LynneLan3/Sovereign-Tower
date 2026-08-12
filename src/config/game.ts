@@ -32,6 +32,8 @@ export interface GameConfig {
 	platforms: readonly string[];
 	accentColor: string;
 	heroImage?: string;
+	heroAlt?: string;
+	heroPosition?: string;
 	logoImage?: string;
 	categories: readonly GameCategory[];
 	portal?: GamePortalConfig;
@@ -52,6 +54,9 @@ export const game: GameConfig = {
 	publisher: 'Curve Games',
 	platforms: ['PC via Steam', 'Steam Deck Verified'],
 	accentColor: '#0f766e',
+	heroImage: 'hero.jpg',
+	heroAlt: 'Official Steam screenshot for Sovereign Tower',
+	heroPosition: 'center 42%',
 	portal: {
 		popularQuestions: [
 			{ label: 'Where should I start in Sovereign Tower?', href: '/sovereign-tower/beginners-guide/' },
