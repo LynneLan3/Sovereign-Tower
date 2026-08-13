@@ -15,6 +15,8 @@ export const collections = {
 					cover: image().optional(),
 					quickAnswer: z.string().optional(),
 					related: z.array(z.string()).optional(),
+					/** Optional Hub Recently Updated change line. Omit freely on older pages. */
+					changeSummary: z.string().optional(),
 				}),
 		}),
 	}),

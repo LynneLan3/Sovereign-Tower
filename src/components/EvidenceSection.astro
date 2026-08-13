@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface EvidenceItemView {
+	image: ImageMetadata;
+	alt: string;
+	caption?: string;
+	href?: string;
+}
+
+interface Props {
+	title: string;
+	description?: string;
+	items: EvidenceItemView[];
+}
+
+const { title, description, items } = Astro.props;
+const [primary, ...rest] = items;
+---
+
+<section class="gw-section gw-section--dark gw-evidence" aria-labelledby="gw-evidence-heading">
+	<div class="gw-section__inner">
+		<header class="gw-section__header">
+			<p class="gw-section__eyebrow">Gameplay & evidence</p>
+			<h2 id="gw-evidence-heading">{title}</h2>
+			{description && <p class="gw-section__lede">{description}</p>}
+		</header>
+
+		<div class:list={['gw-evidence__mosaic', rest.length === 0 && 'gw-evidence__mosaic--solo']}>
+			{
+				primary &&
+					(primary.href ? (
+						<a class="gw-evidence__frame gw-evidence__frame--primary" href={primary.href}>
+							<Image
+								src={primary.image}
+								alt={primary.alt}
+								width={1280}
+								height={720}
+								sizes="(min-width: 50em) 60vw, 100vw"
+								loading="lazy"
+							/>
+							{primary.caption && <span class="gw-evidence__caption">{primary.caption}</span>}
+						</a>
+					) : (
+						<figure class="gw-evidence__frame gw-evidence__frame--primary">
+							<Image
+								src={primary.image}
+								alt={primary.alt}
+								width={1280}
+								height={720}
+								sizes="(min-width: 50em) 60vw, 100vw"
+								loading="lazy"
+							/>
+							{primary.caption && <figcaption class="gw-evidence__caption">{primary.caption}</figcaption>}
+						</figure>
+					))
+			}
+
+			{
+				rest.length > 0 && (
+					<div class="gw-evidence__stack">
+						{rest.map((item) =>
+							item.href ? (
+								<a class="gw-evidence__frame" href={item.href}>
+									<Image
+										src={item.image}
+										alt={item.alt}
+										width={800}
+										height={450}
+										sizes="(min-width: 50em) 30vw, 100vw"
+										loading="lazy"
+									/>
+									{item.caption && <span class="gw-evidence__caption">{item.caption}</span>}
+								</a>
+							) : (
+								<figure class="gw-evidence__frame">
+									<Image
+										src={item.image}
+										alt={item.alt}
+										width={800}
+										height={450}
+										sizes="(min-width: 50em) 30vw, 100vw"
+										loading="lazy"
+									/>
+									{item.caption && <figcaption class="gw-evidence__caption">{item.caption}</figcaption>}
+								</figure>
+							)
+						)}
+					</div>
+				)
+			}
+		</div>
+	</div>
+</section>

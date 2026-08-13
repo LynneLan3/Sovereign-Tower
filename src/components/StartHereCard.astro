@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+	title: string;
+	description: string;
+	href: string;
+	image?: ImageMetadata;
+	label?: string;
+	badge?: string;
+}
+
+const { title, description, href, image, label, badge } = Astro.props;
+---
+
+<a class:list={['gw-start-card', image && 'gw-start-card--media']} href={href}>
+	{
+		image && (
+			<span class="gw-start-card__media">
+				<Image src={image} alt="" width={640} height={360} loading="lazy" />
+			</span>
+		)
+	}
+	<span class="gw-start-card__body">
+		{
+			(label || badge) && (
+				<span class="gw-start-card__meta">
+					{label && <span class="gw-start-card__label">{label}</span>}
+					{badge && <span class="gw-start-card__badge">{badge}</span>}
+				</span>
+			)
+		}
+		<span class="gw-start-card__title">{title}</span>
+		{description && <span class="gw-start-card__desc">{description}</span>}
+	</span>
+</a>
