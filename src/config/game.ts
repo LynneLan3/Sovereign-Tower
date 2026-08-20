@@ -86,6 +86,15 @@ export interface GamePortalConfig {
 	recentUpdates?: readonly GameHubRecentUpdate[];
 }
 
+export type AnalyticsProvider = 'ga4';
+
+export interface GameAnalyticsConfig {
+	enabled: true;
+	provider: AnalyticsProvider;
+	measurementId: string;
+	trackOutbound: boolean;
+}
+
 export interface GameConfig {
 	name: string;
 	shortName: string;
@@ -105,6 +114,7 @@ export interface GameConfig {
 	logoImage?: string;
 	categories: readonly GameCategory[];
 	portal?: GamePortalConfig;
+	analytics?: GameAnalyticsConfig;
 }
 
 export const game: GameConfig = {
@@ -166,6 +176,12 @@ export const game: GameConfig = {
 		],
 		showRecentlyUpdated: true,
 		maxRecent: 4,
+	},
+	analytics: {
+		enabled: true,
+		provider: 'ga4',
+		measurementId: 'G-FCM51HDVC1',
+		trackOutbound: true,
 	},
 	categories: [
 		{
